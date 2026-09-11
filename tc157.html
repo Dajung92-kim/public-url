@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>TC-157 추출 범위 픽스처</title>
+<style>body{font-family:system-ui,"Apple SD Gothic Neo",sans-serif;max-width:820px;margin:0 auto;padding:32px;line-height:1.7;color:#1a1d21}
+h1{font-size:22px}h2{font-size:17px;margin-top:32px;border-top:1px solid #e5e7eb;padding-top:20px}
+img,video{max-width:100%;border:1px solid #d0d5dd;border-radius:6px}
+.hint{font-size:13px;color:#6b7280}</style></head>
+<body>
+<h1>TC-157 · 추출 범위 검증 픽스처</h1>
+
+<h2>1. 본문 텍스트 (수집되어야 함)</h2>
+<p>DCQA-EXTRACT-FIXTURE — 이 페이지는 DirectCloud AI 의 추출 범위를 검증하기 위한 고정 테스트 페이지입니다.
+본문 텍스트만 수집되고 이미지·동영상·스크립트로 표시되는 콘텐츠는 제외되어야 합니다.
+이 문단에만 존재하는 고유 값은 본문확인코드 1355입니다.</p>
+<p>목업 정책 5 는 수집 대상을 본문 텍스트로 한정합니다. 아래 2·3·4 영역의 문자는 모두 HTML 텍스트 노드
+바깥에 있으므로 청크와 답변 근거에 포함되지 않아야 합니다. 각 영역의 고유 값은 이 페이지 본문 어디에도
+적혀 있지 않으며, 해당 리소스를 직접 열어야만 확인할 수 있습니다.</p>
+
+<h2>2. 이미지 안의 문자 (제외되어야 함)</h2>
+<img src="tc157-image.png" alt="">
+<p class="hint">위 PNG 내부에만 문자가 있습니다. alt 속성은 비어 있고 HTML 텍스트 노드가 아닙니다.</p>
+
+<h2>3. 동영상 자막 (제외되어야 함)</h2>
+<video controls width="480" preload="none">
+  <source src="tc157-video.mp4" type="video/mp4">
+  <track kind="captions" srclang="en" label="English" src="tc157-caption.vtt" default>
+</video>
+<p class="hint">자막은 별도 파일(WebVTT)로 연결되어 있습니다. 링크된 리소스이며 본문이 아닙니다.</p>
+
+<h2>4. 스크립트로만 렌더되는 영역</h2>
+<div id="js-area"></div>
+<p class="hint">초기 HTML 에는 이 영역이 비어 있고, 스크립트 실행 후에만 문단이 삽입됩니다.</p>
+
+<script>
+var a = ['스크립트확인코드', ' ', '77', '34'].join('');
+document.getElementById('js-area').innerHTML =
+  '<p>SCRIPT-RENDERED TEXT: 이 문단은 초기 HTML 에 없으며 ' +
+  '스크립트 실행 후에만 DOM 에 삽입됩니다. ' +
+  '이 문단에만 존재하는 고유 값은 ' + a + ' 입니다.</p>';
+</script>
+</body></html>

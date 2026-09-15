@@ -1,0 +1,20 @@
+From: QA Fixture <qa-fixture@example.com>
+To: QA Team <qa@example.com>
+Subject: =?UTF-8?B?W1FBXSBVUkwg7KCB7J6sIO2ajOq3gCDtmZXsnbgg7Y6Y7Iqk7LSQ?=
+Date: Mon, 15 Sep 2026 10:00:00 +0900
+Message-ID: <dcqa-eml-fixture-20260915@example.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+DCQA-EML-FIXTURE
+
+이 메일은 DirectCloud AI 의 파일 URL 적재 회귀 검증용 고정 픽스처입니다.
+색인 락 제거(TSK2026-6842) 변경이 파일 경로와 EML 경로에 영향을 주지 않는지
+확인하기 위해 사용합니다.
+
+EML 은 웹 페이지가 아니라 파일 URL 로 처리되며, 처리 시간 상한은 10분입니다.
+이 메일에만 존재하는 고유 값은 메일확인코드 5164 입니다.
+
+등록 후 AI 채팅에서 메일확인코드를 물었을 때 5164 가 답변되고 출처에 이 URL 이
+표시되면 EML 적재 경로가 정상 동작하는 것입니다.

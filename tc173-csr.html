@@ -1,0 +1,14 @@
+<html>
+<head><meta charset="utf-8"><title>QA CSR long</title></head>
+<body>
+<div id="r"></div>
+<script>
+document.getElementById("r").textContent =
+"이 페이지는 DirectCloud AI 의 동적 URL 처리를 검증하기 위한 통제 페이지입니다. " +
+"초기 HTML 에는 본문 텍스트가 전혀 없고, 자바스크립트가 실행된 뒤에만 이 문단이 채워집니다. " +
+"따라서 정적 수집만으로는 본문을 얻을 수 없고 브라우저 재시도를 거쳐야 수집이 완료됩니다. " +
+"이 페이지에만 존재하는 고유 값은 렌더확인코드 3948 입니다. " +
+"등록이 완료된 뒤 렌더확인코드를 질문했을 때 3948 이 답변되면 브라우저 재시도와 본문 추출이 정상 동작한 것입니다.";
+</script>
+</body>
+</html>
